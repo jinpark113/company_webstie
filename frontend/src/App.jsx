@@ -2,6 +2,7 @@ import "./App.css";
 
 import Footer from "./components/Footer/Footer";
 import Navbar from "./components/Navbar/Navbar"; //components에서 c는 소문자
+import AdminNavbar from "./components/AdminNavbar/AdminNavbar.jsx";
 
 import { useEffect, useState } from "react";
 import {
