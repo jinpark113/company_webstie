@@ -17,6 +17,7 @@ import MainPage from "./pages/MainPage/MainPage";
 import About from "./pages/About/About";
 import Leadership from "./pages/Leadership/Leadership";
 import Board from "./pages/Board/Board";
+import SinglePost from "./pages/SinglePost/SinglePost";
 import Services from "./pages/Services/Services";
 import Contact from "./pages/Contact/Contact"; //pages에서 p는 소문자
 
@@ -126,6 +127,10 @@ const router = createBrowserRouter([
       {
         path: "/board",
         element: <Board />,
+      },
+      {
+        path: "/post/:id",
+        element: <SinglePost />,
       },
       {
         path: "/our-services",
