@@ -14,12 +14,40 @@ const contactRoutes = require("./routes/contact");
 const postRoutes = require("./routes/post");
 const uploadRoutes = require("./routes/upload");
 
-app.use(
-  cors({
-    origin: process.env.CLIENT_ORIGIN?.split(",") || ["http://localhost:5173"],
-    credentials: true,
-  })
-);
+// allow CORS for Netlify and other configured origins
+const defaultAllowedOrigins = [
+  "http://localhost:5173",
+  "https://company-web-frontend.netlify.app",
+];
+
+const allowedOrigins =
+  process.env.CLIENT_ORIGIN?.split(",")
+    .map((s) => s.trim())
+    .filter(Boolean) || defaultAllowedOrigins;
+
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (!origin) return callback(null, true);
+    const isAllowed =
+      allowedOrigins.includes(origin) || /\.netlify\.app$/.test(origin);
+    callback(isAllowed ? null : new Error("Not allowed by CORS"), isAllowed);
+  },
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+  allowedHeaders: [
+    "Content-Type",
+    "Authorization",
+    "X-Requested-With",
+    "Accept",
+  ],
+  optionsSuccessStatus: 204,
+};
+
+app.use(cors(corsOptions));
+app.options("*", cors(corsOptions));
+
+// trust proxy so secure cookies work behind Cloudtype/Netlify proxies
+app.set("trust proxy", 1);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
