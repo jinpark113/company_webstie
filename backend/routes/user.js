@@ -5,6 +5,9 @@ const User = require("../models/User");
 const axios = require("axios");
 const jwt = require("jsonwebtoken");
 
+// 배포(HTTPS) 환경 여부
+const isProd = process.env.NODE_ENV === "production";
+
 router.post("/signup", async (req, res) => {
   try {
     const { username, password } = req.body;
@@ -36,7 +39,7 @@ router.post("/login", async (req, res) => {
     const user = await User.findOne({ username }).select("+password");
 
     if (!user) {
-      return res.status("401").json({ message: "사용자를 찾을 수 없습니다." });
+      return res.status(401).json({ message: "사용자를 찾을 수 없습니다." });
     }
 
     if (!user.isActive) {
@@ -75,6 +78,7 @@ router.post("/login", async (req, res) => {
     user.lastLoginAttempt = new Date();
     user.isLoggedIn = true;
 
+    // // IP 기록이 필요하면 해제
     // try {
     //   const response = await axios.get("https://api.ipify.org?format=json");
     //   const ipAddress = response.data.ip;
@@ -91,13 +95,13 @@ router.post("/login", async (req, res) => {
       { expiresIn: "24h" }
     );
 
-    console.log(token);
-
+    //  중요: 크로스 도메인 쿠키 조건
     res.cookie("token", token, {
       httpOnly: true,
-      secure: "production",
-      sameSite: "strict",
-      maxAge: 24 * 60 * 60 * 1000,
+      secure: isProd, // 배포(HTTPS)에서만 true
+      sameSite: "none", // 다른 도메인에서 전송 허용
+      path: "/", // 전체 경로에서 사용
+      maxAge: 24 * 60 * 60 * 1000, // 24시간
     });
 
     const userWithoutPassword = user.toObject();
@@ -130,10 +134,12 @@ router.post("/logout", async (req, res) => {
       console.log("토큰 검증 오류: ", error.message);
     }
 
+    // 🔴 로그인과 동일한 옵션으로 쿠키 제거
     res.clearCookie("token", {
       httpOnly: true,
-      secure: "production",
-      sameSite: "strict",
+      secure: isProd,
+      sameSite: "none",
+      path: "/",
     });
 
     res.json({ message: "로그아웃되었습니다." });
