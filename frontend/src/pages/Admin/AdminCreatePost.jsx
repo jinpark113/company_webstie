@@ -53,25 +53,21 @@ const AdminCreatePost = () => {
           fileFormData.append("file", file);
           fileFormData.append("originalName", encodedFileName);
 
-          const response = await axios.post(
-            "http://localhost:3000/api/upload/file",
-            fileFormData,
-            {
-              withCredentials: true,
-              headers: {
-                "Content-Type": "multipart/form-data",
-              },
-              onUploadProgress: (progressEvent) => {
-                const percentCompleted = Math.round(
-                  (progressEvent.loaded * 100) / progressEvent.total
-                );
-                setUploadProgress((prev) => ({
-                  ...prev,
-                  [file.name]: percentCompleted,
-                }));
-              },
-            }
-          );
+          const response = await axios.post("/api/upload/file", fileFormData, {
+            withCredentials: true,
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+            onUploadProgress: (progressEvent) => {
+              const percentCompleted = Math.round(
+                (progressEvent.loaded * 100) / progressEvent.total
+              );
+              setUploadProgress((prev) => ({
+                ...prev,
+                [file.name]: percentCompleted,
+              }));
+            },
+          });
           return response.data.fileUrl;
         })
       );
@@ -82,7 +78,7 @@ const AdminCreatePost = () => {
         fileUrl: uploadedFiles,
       };
 
-      await axios.post("http://localhost:3000/api/post", postData, {
+      await axios.post("/api/post", postData, {
         withCredentials: true,
         headers: {
           "Content-Type": "application/json",
@@ -207,7 +203,7 @@ const AdminCreatePost = () => {
                     formData.append("image", blobInfo.blob());
 
                     const response = await axios.post(
-                      "http://localhost:3000/api/upload/image",
+                      "/api/upload/image",
                       formData,
                       {
                         withCredentials: true,
