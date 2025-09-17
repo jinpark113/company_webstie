@@ -5,26 +5,27 @@ const Services = () => {
   const servicesList = [
     {
       id: 1,
-      title: "맞춤형 소프트웨어 개발",
-      description: "고객의 요구사항에 맞는 최적화된 솔루션을 제공합니다.",
+      title: "웹사이트 제작",
+      description: "반응형 웹사이트부터 커스텀 웹 애플리케이션까지 제작합니다.",
       icon: "💻",
     },
     {
       id: 2,
-      title: "클라우드 서비스",
-      description: "안정적이고 확장 가능한 클라우드 인프라 구축 및 관리",
-      icon: "☁️",
+      title: "디지털 마케팅",
+      description:
+        "SEO, SNS 마케팅, 구글 광고 등 종합적인 디지털 마케팅 서비스",
+      icon: "📈",
     },
     {
       id: 3,
-      title: "보안 솔루션",
-      description: "최신 보안 기술을 적용한 안전한 시스템 구축",
-      icon: "🔒",
+      title: "브랜드 디자인",
+      description: "로고, 브랜드 아이덴티티, UI/UX 디자인 서비스",
+      icon: "🎨",
     },
     {
       id: 4,
-      title: "기술 컨설팅",
-      description: "전문가의 분석을 통한 최적의 기술 전략 수립",
+      title: "마케팅 컨설팅",
+      description: "전문가의 분석을 통한 최적의 마케팅 전략 수립",
       icon: "📊",
     },
   ];
@@ -49,7 +50,7 @@ const Services = () => {
           우리의 서비스
         </h1>
         <p className="text-xl text-gray-600">
-          혁신적인 기술로 비즈니스의 성공을 지원합니다.
+          창의적인 디자인과 전략적 마케팅으로 비즈니스의 성공을 지원합니다.
         </p>
       </motion.div>
 
@@ -85,19 +86,19 @@ const Services = () => {
             <h3 className="text-xl font-semibold text-gray-800 mb-2">
               10년+ 경험
             </h3>
-            <p className="text-gray-600">다양한 산업 분야의 프로젝트 경험</p>
+            <p className="text-gray-600">다양한 업종의 마케팅 프로젝트 경험</p>
           </div>
           <div className="bg-gray-50 p-6 rounded-lg">
             <h3 className="text-xl font-semibold text-gray-800 mb-2">
               전문가 팀
             </h3>
-            <p className="text-gray-600">숙련된 개발자와 컨설턴트로 구성</p>
+            <p className="text-gray-600">숙련된 디자이너와 마케터로 구성</p>
           </div>
           <div className="bg-gray-50 p-6 rounded-lg">
             <h3 className="text-xl font-semibold text-gray-800 mb-2">
               24/7 지원
             </h3>
-            <p className="text-gray-600">연중무휴 기술 지원 서비스</p>
+            <p className="text-gray-600">연중무휴 고객 지원 서비스</p>
           </div>
         </div>
       </motion.div>
@@ -110,23 +111,23 @@ const Services = () => {
           {[
             {
               step: "01",
-              title: "요구사항 분석",
+              title: "브리핑 및 분석",
               desc: "고객의 니즈와 목표를 정확히 파악",
             },
             {
               step: "02",
-              title: "설계 및 기획",
-              desc: "최적의 솔루션 설계와 개발 계획 수립",
+              title: "전략 수립",
+              desc: "최적의 마케팅 전략과 디자인 방향 설정",
             },
             {
               step: "03",
-              title: "개발 및 테스트",
-              desc: "체계적인 개발과 품질 검증 진행",
+              title: "제작 및 실행",
+              desc: "체계적인 제작과 마케팅 캠페인 진행",
             },
             {
               step: "04",
-              title: "배포 및 유지보수",
-              desc: "안정적인 서비스 운영과 지속적인 개선",
+              title: "모니터링 및 최적화",
+              desc: "성과 분석과 지속적인 개선",
             },
           ].map((item, index) => (
             <motion.div
@@ -154,7 +155,7 @@ const Services = () => {
           프로젝트를 시작할 준비가 되셨나요?
         </h2>
         <p className="text-xl mb-8">
-          전문가와 상담하고 최적의 솔루션을 찾아보세요.
+          전문가와 상담하고 최적의 마케팅 전략을 찾아보세요.
         </p>
         <button className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors duration-300">
           무료 상담 신청하기

@@ -71,8 +71,8 @@ const Contact = () => {
             문의하기
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            태양광 설비 설치부터 유지보수까지, 전문가와 상담하세요. 24시간 내에
-            답변드리겠습니다.
+            웹사이트 제작부터 디지털 마케팅까지, 전문가와 상담하세요. 24시간
+            내에 답변드리겠습니다.
           </p>
         </motion.div>
         <motion.div
@@ -167,7 +167,7 @@ const Contact = () => {
                   },
                   {
                     title: "이메일",
-                    info: "support@example.com",
+                    info: "hello@creativeagency.com",
                     desc: "24시간 접수 가능",
                   },
                   {

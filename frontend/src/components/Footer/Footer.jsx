@@ -16,7 +16,7 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-bold mb-4">회사 소개</h3>
             <p className="text-gray-400">
-              저희 회사는 최고의 서비스를 제공하기 위해 노력하고 있습니다.
+              창의적인 디자인과 전략적 마케팅으로 고객의 성공을 이끕니다.
             </p>
           </div>
 
@@ -38,7 +38,7 @@ const Footer = () => {
                   onClick={scrollToTop}
                   className="hover:text-white transition-colors"
                 >
-                  회사 정보
+                  회사 소개
                 </Link>
               </li>
               <li>
@@ -47,7 +47,7 @@ const Footer = () => {
                   onClick={scrollToTop}
                   className="hover:text-white transition-colors"
                 >
-                  임원 소개
+                  팀 소개
                 </Link>
               </li>
               <li>
@@ -56,7 +56,7 @@ const Footer = () => {
                   onClick={scrollToTop}
                   className="hover:text-white transition-colors"
                 >
-                  업무 게시판
+                  포트폴리오
                 </Link>
               </li>
               <li>
@@ -65,7 +65,7 @@ const Footer = () => {
                   onClick={scrollToTop}
                   className="hover:text-white transition-colors"
                 >
-                  제공 기술
+                  서비스
                 </Link>
               </li>
               <li>
@@ -85,7 +85,7 @@ const Footer = () => {
               <li>서울특별시 강남구</li>
               <li>삼성동 123번지</li>
               <li>전화: 02-1234-5678</li>
-              <li>이메일: info@example.com</li>
+              <li>이메일: hello@creativeagency.com</li>
             </ul>
           </div>
           <div>
@@ -120,7 +120,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; 2024 ABC Company. All rights reserved.</p>
+          <p>&copy; 2024 Creative Agency. All rights reserved.</p>
         </div>
       </div>
     </footer>

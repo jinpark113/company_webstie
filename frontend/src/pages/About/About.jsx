@@ -34,13 +34,13 @@ const About = () => {
             className="text-2xl md:text-4xl font-bold mb-2 md:mb-3"
             variants={fadeInVariants}
           >
-            ABC Company
+            Creative Agency
           </motion.h3>
           <motion.p
             className="text-base md:text-xl font-light"
             variants={fadeInVariants}
           >
-            혁신과 신뢰로 글로벌 시장을 선도합니다.
+            창의적인 디자인과 전략적 마케팅으로 성공을 이끕니다.
           </motion.p>
         </div>
       </motion.div>
@@ -55,18 +55,18 @@ const About = () => {
         </h2>
         <div className="text-lg leading-relaxed text-gray-600 space-y-6">
           <p>
-            ABC Company는 1995년 설립 이래로 전력 변환 장치 및 전력 제어 시스템
-            분야에서 혁신적인 솔루션을 제공해온 선도적인 전기 기업입니다. 고효율
-            변압기, 전력변환장치(PCS), 무정전전원장치(UPS) 등의 핵심 제품을 개발
-            및 생산하며, 신재생 에너지 설비와 스마트 그리드 시스템 구축에도
-            앞장서고 있습니다.
+            Creative Agency는 2014년 설립 이래로 디지털 마케팅과 웹 디자인
+            분야에서 혁신적인 솔루션을 제공해온 선도적인 마케팅 에이전시입니다.
+            웹사이트 제작, 브랜드 디자인, 디지털 마케팅, SEO 최적화 등의 핵심
+            서비스를 제공하며, 스타트업부터 대기업까지 다양한 고객의 성공을
+            이끌고 있습니다.
           </p>
           <p>
-            특히 친환경 에너지 솔루션 분야에서 탁월한 기술력을 인정받아, 국내외
-            주요 발전소와 산업시설에 안정적인 전력 공급 시스템을 구축하고
-            있습니다. 끊임없는 R&D 투자와 기술 혁신을 통해 에너지 효율화와 전력
-            품질 향상에 기여하며, 지속 가능한 미래를 위한 친환경 에너지 솔루션을
-            선도하고 있습니다.
+            특히 디지털 마케팅 분야에서 탁월한 성과를 인정받아, 국내외 주요
+            브랜드들의 온라인 마케팅 전략을 수립하고 실행하고 있습니다. 끊임없는
+            트렌드 분석과 창의적 아이디어를 통해 브랜드 인지도와 매출 향상에
+            기여하며, 지속 가능한 성장을 위한 디지털 마케팅 솔루션을 선도하고
+            있습니다.
           </p>
         </div>
       </motion.div>
@@ -77,9 +77,18 @@ const About = () => {
         custom={2}
       >
         {[
-          { title: "혁신", desc: "끊임없는 도전과 혁신으로 미래를 선도합니다" },
-          { title: "신뢰", desc: "고객과의 신뢰를 최우선 가치로 삼습니다" },
-          { title: "성장", desc: "구성원들의 지속적인 성장을 지원합니다" },
+          {
+            title: "창의성",
+            desc: "독창적인 아이디어와 혁신적인 디자인으로 차별화합니다",
+          },
+          {
+            title: "전문성",
+            desc: "깊이 있는 전문 지식과 풍부한 경험을 바탕으로 합니다",
+          },
+          {
+            title: "성과",
+            desc: "고객의 비즈니스 성장과 성공을 최우선으로 합니다",
+          },
         ].map((value, index) => (
           <motion.div
             key={index}
@@ -102,8 +111,9 @@ const About = () => {
       >
         <h2 className="text-4xl font-bold mb-8 text-slate-800">회사 비전</h2>
         <p className="text-2xl leading-relaxed text-gray-600 font-light">
-          "2030년까지 글로벌 시장을 선도하는 기술 혁신 기업으로 도약하여,
-          <br />더 나은 세상을 만드는데 기여하겠습니다."
+          "2030년까지 아시아 최고의 디지털 마케팅 에이전시로 성장하여,
+          <br />
+          고객의 성공과 함께 더 나은 디지털 세상을 만들어가겠습니다."
         </p>
       </motion.div>
 
@@ -113,9 +123,9 @@ const About = () => {
         </h2>
         <div className="space-y-12 max-w-5xl mx-auto">
           {[
-            { year: "2023", event: "글로벌 시장 진출" },
-            { year: "2022", event: "시리즈 B 투자 유치" },
-            { year: "2021", event: "주요 기술 특허 획득" },
+            { year: "2023", event: "글로벌 마케팅 서비스 확장" },
+            { year: "2022", event: "대형 기업 고객 확보" },
+            { year: "2021", event: "디지털 마케팅 부문 수상" },
             { year: "2020", event: "회사 설립" },
           ].map((item, index) => (
             <motion.div
