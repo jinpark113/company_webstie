@@ -4,7 +4,10 @@ const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const app = express();
-const PORT = 3000;
+
+// 여기만 수정
+//const PORT = 3000;     //삭제 됨
+const PORT = process.env.PORT || 3000; //추가 됨
 
 const userRoutes = require("./routes/user");
 const contactRoutes = require("./routes/contact");
