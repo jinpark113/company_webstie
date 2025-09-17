@@ -26,7 +26,6 @@ const allowedOrigins =
     .filter(Boolean) || defaultAllowedOrigins;
 
 const corsOptions = {
-  // reflect the request origin; we already restrict at app/router level if needed
   origin: true,
   credentials: true,
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
@@ -39,8 +38,26 @@ const corsOptions = {
   optionsSuccessStatus: 204,
 };
 
+// Always set CORS headers even if route handling fails elsewhere
+app.use((req, res, next) => {
+  const origin = req.headers.origin;
+  if (origin) {
+    res.header("Access-Control-Allow-Origin", origin);
+    res.header("Vary", "Origin");
+  }
+  res.header("Access-Control-Allow-Credentials", "true");
+  res.header(
+    "Access-Control-Allow-Headers",
+    corsOptions.allowedHeaders.join(", ")
+  );
+  res.header("Access-Control-Allow-Methods", corsOptions.methods.join(", "));
+  if (req.method === "OPTIONS") {
+    return res.sendStatus(204);
+  }
+  next();
+});
+
 app.use(cors(corsOptions));
-app.options("*", cors(corsOptions));
 
 // trust proxy so secure cookies work behind Cloudtype/Netlify proxies
 app.set("trust proxy", 1);
