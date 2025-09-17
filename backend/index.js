@@ -26,12 +26,8 @@ const allowedOrigins =
     .filter(Boolean) || defaultAllowedOrigins;
 
 const corsOptions = {
-  origin: (origin, callback) => {
-    if (!origin) return callback(null, true);
-    const isAllowed =
-      allowedOrigins.includes(origin) || /\.netlify\.app$/.test(origin);
-    callback(isAllowed ? null : new Error("Not allowed by CORS"), isAllowed);
-  },
+  // reflect the request origin; we already restrict at app/router level if needed
+  origin: true,
   credentials: true,
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
   allowedHeaders: [

@@ -5,9 +5,11 @@ import App from "./App.jsx";
 
 import axios from "axios";
 
-axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URL; // .env 값
-axios.defaults.withCredentials = true; // 쿠키 쓰면 유지
-console.log("API BASE =", axios.defaults.baseURL); // 확인용(나중에 지워도 됨)
+// Ensure baseURL is just the origin (no trailing slash)
+const apiBase = (import.meta.env.VITE_API_BASE_URL || "").replace(/\/+$/, "");
+axios.defaults.baseURL = apiBase;
+// Do NOT enable withCredentials globally. Set it only where needed.
+console.log("API BASE =", axios.defaults.baseURL);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
