@@ -53,6 +53,13 @@ const NavBar = () => {
           <option value="en">English</option>
         </select>
 
+        <Link
+          to="/admin"
+          className="hidden lg:block px-3 py-1 ml-3 border rounded-md bg-white hover:border-blue-500 transition duration-300"
+        >
+          Admin
+        </Link>
+
         <button
           className="lg:hidden text-2xl"
           onClick={toggleMenu}
